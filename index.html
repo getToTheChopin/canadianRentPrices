@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+
+<head>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Canadian Rent Prices and Affordability by City (1992 to 2022)</h1>
+
+    <p>This post analyses rent prices and rental affordability in 8 Canadian cities across the time period of 1992 to 2022, covering:</p>
+    <ul>
+        <li>Average rent prices for 1 bedroom, 2 bedroom, 3 bedroom, and studio units</li>
+        <li>Monthly after-tax income by city</li>
+        <li>Rent-to-income ratio (average rent as a % of average income)</li>
+        <li>"Leftover income" (after-tax income minus the average cost of renting a 1 bedroom unit)</li>
+        <li>Cost for new renters versus existing renters in each city</li>
+    </ul>
+
+    <p>Below, you'll find a series of charts which visualize source data from StatCan and the Canadian Mortgage and Housing Corporation (CMHC).</p>
+    <p>All of the charts are interactive, letting you dynamically select the city / metric to analyse.</p>
+
+    &nbsp;
+
+    <h2>Canadian Rent Prices and Rental Affordability Over Time 💰</h2>
+
+    <p>Compare the past 30 years of rent and income info across three Canadian cities. Use the drop-down menus below to choose your preferred cities and metric to analyse.</p>
+
+    <div id="multiCitySelectionDiv" class="selectionTableDiv">
+        <table id="multiCitySelectionTable">
+            <tr>
+                <th>City 1</th>
+                <th>City 2</th>
+                <th>City 3</th>
+            </tr>
+
+            <tr>
+                <td>
+                    <select id="city1Selection" class="userInput select-style multiCitySelect">
+                        <option class="citySelectionOption" value="0">Québec</option>
+                        <option class="citySelectionOption" value="1">Montréal</option>
+                        <option class="citySelectionOption" value="2">Ottawa-Gatineau</option>
+                        <option class="citySelectionOption" value="3" selected="selected">Toronto</option>
+                        <option class="citySelectionOption" value="4">Winnipeg</option>
+                        <option class="citySelectionOption" value="5">Calgary</option>
+                        <option class="citySelectionOption" value="6">Edmonton</option>
+                        <option class="citySelectionOption" value="7">Vancouver</option>
+                    </select>
+                </td>
+
+                <td>
+                    <select id="city2Selection" class="userInput select-style multiCitySelect">
+                        <option class="citySelectionOption" value="0">Québec</option>
+                        <option class="citySelectionOption" value="1">Montréal</option>
+                        <option class="citySelectionOption" value="2">Ottawa-Gatineau</option>
+                        <option class="citySelectionOption" value="3">Toronto</option>
+                        <option class="citySelectionOption" value="4">Winnipeg</option>
+                        <option class="citySelectionOption" value="5" selected="selected">Calgary</option>
+                        <option class="citySelectionOption" value="6">Edmonton</option>
+                        <option class="citySelectionOption" value="7">Vancouver</option>
+                    </select>
+                </td>
+
+                <td>
+                    <select id="city3Selection" class="userInput select-style multiCitySelect">
+                        <option class="citySelectionOption" value="0">Québec</option>
+                        <option class="citySelectionOption" value="1" selected="selected">Montréal</option>
+                        <option class="citySelectionOption" value="2">Ottawa-Gatineau</option>
+                        <option class="citySelectionOption" value="3">Toronto</option>
+                        <option class="citySelectionOption" value="4">Winnipeg</option>
+                        <option class="citySelectionOption" value="5">Calgary</option>
+                        <option class="citySelectionOption" value="6">Edmonton</option>
+                        <option class="citySelectionOption" value="7">Vancouver</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+
+            <tr>
+                <td>Metric: </td>
+                <td>
+                    <select id="indicatorSelection" class="userInput select-style">
+                        <option class="indicatorSelectionOption" value="0">1 bedroom rent price</option>
+                        <option class="indicatorSelectionOption" value="1">After-tax income</option>
+                        <option class="indicatorSelectionOption" value="2">Rent-to-income ratio</option>
+                        <option class="indicatorSelectionOption" value="3">Leftover income</option>
+                    </select>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+    
+    <div id="multiCityRentChartDiv">
+        <canvas id="multiCityRentChart"></canvas>
+    </div>
+
+    <div id="multiCityIncomeChartDiv">
+        <canvas id="multiCityIncomeChart"></canvas>
+    </div>
+
+    <div id="multiCityRentRatioChartDiv">
+        <canvas id="multiCityRentRatioChart"></canvas>
+    </div>
+
+    <div id="multiCityLeftoverIncomeChartDiv">
+        <canvas id="multiCityLeftoverIncomeChart"></canvas>
+    </div>
+
+    &nbsp;
+
+    <h2>Ranking Rent Prices in Major Canadian Cities (2022 data) ↕️🏠</h2>
+
+    <p>Compare Canadian rent prices and rental affordability across all cities at once, ranked using 2022 data.</p>
+    <p>Use the drop-down menu to select your metric of choice.</p>
+
+    <div class="selectionTableDiv">
+
+        <table>
+            <tr>
+                <td>Metric: </td>
+                <td>
+                    <select id="rankIndicatorSelection" class="userInput2 select-style">
+                        <option class="rankIndicatorSelectionOption" value="0">Studio unit rent price</option>
+                        <option class="rankIndicatorSelectionOption" value="1" selected="selected">1 bedroom rent price</option>
+                        <option class="rankIndicatorSelectionOption" value="2">2 bedroom rent price</option>
+                        <option class="rankIndicatorSelectionOption" value="3">3 bedroom rent price</option>
+                        <option class="rankIndicatorSelectionOption" value="4">After-tax income</option>
+                        <option class="rankIndicatorSelectionOption" value="5">Rent-to-income ratio</option>
+                        <option class="rankIndicatorSelectionOption" value="6">Leftover income</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="rankChartDiv">
+        <canvas id="rankChart"></canvas>
+    </div>
+
+    &nbsp;
+
+    <h2>Single City Spotlight 🔦</h2>
+
+    <p>Explore the average rent price for homes of varying size -- for studios, 1 bedroom, 2 bedroom, and 3 bedroom units.</p>
+    <p>You can also check the year-over-year percentage changes in rent prices in the second chart below.</p>
+
+    <div id="singleCitySelectionDiv" class="selectionTableDiv">
+        <table id="singleCitySelectionTable">
+
+            <tr>
+                <td>City: </td>
+                <td>
+                    <select id="singleCitySelection" class="userInput3 select-style">
+                        <option class="singleCitySelectionOption" value="0">Québec</option>
+                        <option class="singleCitySelectionOption" value="1">Montréal</option>
+                        <option class="singleCitySelectionOption" value="2" selected="selected">Ottawa-Gatineau</option>
+                        <option class="singleCitySelectionOption" value="3">Toronto</option>
+                        <option class="singleCitySelectionOption" value="4">Winnipeg</option>
+                        <option class="singleCitySelectionOption" value="5">Calgary</option>
+                        <option class="singleCitySelectionOption" value="6">Edmonton</option>
+                        <option class="singleCitySelectionOption" value="7">Vancouver</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="singleCityRentChartDiv">
+        <canvas id="singleCityRentChart"></canvas>
+    </div>
+
+    <div id="singleCityPercentChangeChartDiv">
+        <canvas id="singleCityPercentChangeChart"></canvas>
+    </div>
+
+    &nbsp;
+
+    <h2>Cost for Recent Renters vs Existing Renters</h2>
+
+    <p>Up until now, all of the data shown has been average data, combining costs for new renters and for those who have been living in the same unit for many years.</p>
+    <p>In the charts below, the average rent price paid in each city is broken down between the cost paid by "recent renters" (people who moved within the previous 12 months) versus "existing renters" who have been in their home for more than a year.</p>
+    <p>While the data is slightly dated (from 2021), it provides a glimpse into the effect of "rental tenure" on Canadian rent prices.</p>
+
+    <div id="rentTenureChartDiv">
+        <canvas id="rentTenureChart"></canvas>
+    </div>
+    
+    <div id="rentTenurePremiumChartDiv">
+        <canvas id="rentTenurePremiumChart"></canvas>
+    </div>
+
+    <p>Recent renters in Toronto paid an average of $2,180 per month, compared to $1,460 for existing renters. Put another way, new renters in Toronto are paying roughly 50% more compared to those who've been living in their homes for over a year.</p>
+    <p>This effect is partly explained by provincial rent control measures. For example, in Ontario and BC, rent control policies limit rent increases for many existing tenants, but not for units turned over to new tenants. This leads to price disparities, with new renters paying significantly higher costs compared to those who stay in the same unit for many years.</p>
+    <p>Unfortunately, this disproportionately impacts young Canadians, students, and recent immigrants -- groups that are more likely to be entering into a new lease.</p>
+
+    &nbsp;
+
+    <h2>Commentary and Caveats</h2>
+
+    <p>It's worth noting that the data used in this analysis shows average rent prices across major Canadian cities. As always, broad averages should be taken with a pinch of salt. Signifcant differences in home quality and location -- new luxury units vs. decades-old apartments, downtown core vs. outskirts, spacious vs. "cozy" units -- are boiled down into a single metric.</p>
+    <p>To get a sense of the disparity in rent costs within a city's boundaries, <a href="https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=2270&GeographyTypeId=3&DisplayAs=Table&GeograghyName=Toronto#" rel="noopener" target="_blank">this dataset of Toronto rent prices by neighbourhood</a> from the CMHC provides a useful snapshot as of October 2022.</p>
+    <p>In the Toronto core neighourhood of "Bay Street Corridor", the average 1 bedroom rent price is $2,356 per month. In contrast, neighbourhoods that are further from downtown have lower rent prices -- for example, average rent in "Yorkdale-Glen Park" (North York area) is $1,122 and "Ajax/Pickering" is $1,193 per month.</p>
+    <p>While the average rent price data for each city provides quick comparisons and tells the story in broad strokes, analysis on a per-neighbourhood level would paint a more accurate picture.</p>
+
+    &nbsp;
+    <h2>Data Sources and Notes</h2>
+
+    <ul>
+        <li><a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410013301" target="_blank" rel="noopener">CMHC / StatCan data on rent prices in major Canadian cities</a></li>
+        <li><a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110023801" target="_blank" rel="noopener">StatCan data on average after-tax income in major Canadian cities</a></li>
+        <li><a href="https://www12.statcan.gc.ca/census-recensement/2021/as-sa/98-200-X/2021016/98-200-X2021016-eng.cfm#" target="_blank" rel="noopener">StatCan data on rent prices for recent vs. existing renters</a></li>
+        <li><a href="https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=2270&GeographyTypeId=3&DisplayAs=Table&GeograghyName=Toronto#" target="_blank" rel="noopener">CMHC data on Toronto rent prices by neighbourhood</a></li>
+        <li><a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000501" target="_blank" rel="noopener">StatCan annual Consumer Price Index (CPI)</a></li>
+    </ul>
+
+    <p>Note: all data used in this post reflects nominal dollars (i.e., the actual values in those years, not adjusted for the impact of inflation).</p>
+
+    &nbsp;
+
+    <h2>Related Reading</h2>
+    <p>Other explorations into incomes, taxes, and the overall cost of living in Canada:</p>
+    <ul>
+        <li><b><a href="https://themeasureofaplan.com/canadian-housing-affordability/" target="_blank" rel="noopener">Tracking Canadian housing market affordability</a></b> -- analysing home prices, incomes, and mortgage rates across Canadian cities</li> 	
+        <li><b><a href="https://themeasureofaplan.com/rent-versus-buy-calculator/" target="_blank" rel="noopener">Rent versus buy calculator</a></b> -- a spreadsheet to crunch the numbers on whether renting or buying is the better financial decision</li> 	
+        <li><b><a href="https://themeasureofaplan.com/exploring-canadian-income/" target="_blank" rel="noopener">Exploring Canadian incomes</a></b> by province, age group, and sex</li>
+        <li><b><a href="https://themeasureofaplan.com/canadian-income-tax-calculator/" target="_blank" rel="noopener">2023 Canadian income tax calculator</a></b> -- a resource to compare tax rates and after-tax incomes across Canada</li> 	
+        <li><b><a href="https://themeasureofaplan.com/canadian-food-price-inflation/" target="_blank" rel="noopener">Canadian Food Price Inflation</a></b> -- tracking prices for 110 foods</li> 	
+    </ul>
+
+    &nbsp;
+
+    <p>-----</p>
+    <p>Header illustration credit: <a href="https://dribbble.com/chrismunroe" rel="noopener" target="_blank">Chris Munroe</a></p>
+
+    &nbsp;
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="canadianRentPriceScript.js"></script>
+
+</body>
+
+</html>

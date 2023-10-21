@@ -1,0 +1,271 @@
+html {
+    font-family:helvetica;
+    font-size:15px;
+    margin:auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin:auto;
+    max-width:99%;
+    /*font-size:0.9em;*/
+}
+
+th {
+    border: 2px solid white;
+    padding: 5px;
+    text-align: center;
+    vertical-align:middle;
+	border-collapse: collapse;
+	background-color: #e9e9e9;
+}
+
+#indicatorMenuTable{
+    background-color: white;
+    border: 2px solid rgb(0, 183, 255);
+}
+
+
+#indicatorMenuTable td {
+    vertical-align: middle;
+    padding: 5px;
+}
+
+#descriptionColumn {
+    text-align: left !important;
+    vertical-align: left !important;
+    max-width:400px;
+}
+
+.hide {
+    display: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(194, 194, 194);
+    opacity: 1; /* Firefox */
+    font-weight: normal;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(194, 194, 194);
+    font-weight: normal;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(194, 194, 194);
+    font-weight: normal;
+}
+
+input.input-number–noSpinners {
+    -moz-appearance: textfield;
+    border:1px solid rgb(180, 180, 180);
+    padding: 4px 0 4px 0;
+}
+
+input.input-number–noSpinners::-webkit-inner-spin-button,
+input.input-number–noSpinners::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    border:1px solid rgb(180, 180, 180);
+    padding: 4px 0 4px 0;
+}
+
+input:hover{
+    background-color: rgb(246, 252, 255);
+    border:1px solid rgb(146, 146, 146);
+}
+
+.selectionTableDiv {
+    border: 1.5px solid gray;
+    border-radius: 10px;
+    padding: 0.4em;
+    max-width: 450px;
+    margin: auto;
+    -webkit-box-shadow: 7px 7px 6px -4px rgba(0,0,0,0.51); 
+    box-shadow: 7px 7px 6px -4px rgba(0,0,0,0.51);
+    background-color: white;
+}
+
+#noteDiv {
+    font-size: 0.8em;
+    border: 1.5px solid gray;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+    padding: 0.5em;
+    max-width: 400px;
+    margin: auto;
+    -webkit-box-shadow: 7px 7px 6px -4px rgba(0,0,0,0.51); 
+    box-shadow: 7px 7px 6px -4px rgba(0,0,0,0.51);
+    background-color: white;
+}
+
+#noteSpan{
+    text-align: center;
+}
+
+#multiCityRentChartDiv, #multiCityIncomeChartDiv, #multiCityRentRatioChartDiv,
+#multiCityLeftoverIncomeChartDiv, #rankChartDiv, #singleCityRentChartDiv,
+#singleCityPercentChangeChartDiv, #rentTenureChartDiv, #rentTenurePremiumChartDiv {
+    width:95%;
+    max-width:1200px;
+    padding:6px;
+    border: 2px solid rgb(0, 30, 87);
+    background-color: white;
+    position:relative;
+    height:65vh;
+	max-height: 550px;
+    margin: auto;
+	text-align: center;
+    margin-top:15px;
+    margin-bottom:15px;
+    box-shadow: 4px 4px 10px grey;
+}
+
+.select-style {
+    border-bottom: 2px solid rgb(0, 183, 255);
+    border-left:none;
+    border-top:none;
+    border-right:none;
+    border-radius:0;
+    overflow: hidden;
+    font-weight:bold;
+    padding:1px;
+    /*
+    //-moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    */
+    text-align:center;
+    font-family: Helvetica, sans-serif;
+    font-size:0.95em;
+    outline: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.multiCitySelect{
+    max-width: 120px;
+    font-size:0.9em;
+}
+
+.form-control {
+    font-size: 0.85em;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    /*margin-top: 0.75em;*/
+    width: 1.5em;
+    height: 1.5rem;
+    accent-color: rgb(0, 183, 255);
+}
+
+input[type="checkbox"]:disabled {
+    --form-control-color: var(--form-control-disabled);
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;  
+    background-color: #ffffff; 
+}
+
+#citySelectionDiv, #indicatorSelectionDiv {
+    font-size: 1.2em;
+    text-align: center;
+    vertical-align: baseline;
+    margin: auto;
+    margin-bottom: 1%;
+}
+
+.selectionLabel{
+    padding-right: 8px;
+}
+
+/* footnote styling */
+
+body {
+    counter-reset: footnotes;
+}
+  
+  /**
+   * Inline footnotes references
+   * 1. Increment the counter at each new reference
+   * 2. Reset link styles to make it appear like regular text
+   */
+  [aria-describedby="footnote-label"] {
+    counter-increment: footnotes; /* 1 */
+    text-decoration: none; /* 2 */
+    color: inherit; /* 2 */
+    cursor: default; /* 2 */
+    outline: none; /* 2 */
+  }
+  
+  /**
+   * Actual numbered references
+   * 1. Display the current state of the counter (e.g. `[1]`)
+   * 2. Align text as superscript
+   * 3. Make the number smaller (since it's superscript)
+   * 4. Slightly offset the number from the text
+   * 5. Reset link styles on the number to show it's usable
+   */
+  [aria-describedby="footnote-label"]::after {
+    content: '[' counter(footnotes) ']'; /* 1 */
+    vertical-align: super; /* 2 */
+    font-size: 0.7em; /* 3 */
+    margin-left: 2px; /* 4 */
+    color: blue; /* 5 */
+    text-decoration: underline; /* 5 */
+    cursor: pointer; /* 5 */
+  }
+  
+  /**
+   * Resetting the default focused styles on the number
+   */
+  [aria-describedby="footnote-label"]:focus::after {
+    outline: thin dotted;
+    outline-offset: 2px;
+  }
+  
+  [aria-label="Back to content"] {
+    font-size: 0.9em;
+  }
+  
+  /**
+   * Highlight target note
+   */
+  footer :target {
+    background: rgb(255, 255, 203);
+  }
+  
+  /**
+   * Visually hidden yet accessible content
+   */
+  .visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    visibility: hidden;
+    opacity: 0;
+  }
